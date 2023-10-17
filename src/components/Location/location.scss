@@ -1,0 +1,35 @@
+@import '../../scss-setings/vars.scss';
+@import '../../scss-setings/mixins.scss';
+
+.location {
+    position: relative;
+    max-width: 135px;
+    width: 100%;
+    padding-right: 25px;
+    &::after {
+        position: absolute;
+        content: '|';
+        color: #414040;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__city {
+        font-size: 9px;
+        color: $grey;
+        padding-left: 14px;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            width: 7px;
+            height: 8px;
+            background-image: url('../../images/icons/map.svg');
+            background-repeat: no-repeat;
+            left: 0;
+            top: 2px;
+
+        }
+    }
+}

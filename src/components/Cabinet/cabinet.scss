@@ -1,0 +1,38 @@
+@import '../../scss-setings/vars.scss';
+
+.cabinet {
+    max-width: 155px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-right: 25px;
+    margin-right: 25px; 
+    flex-wrap: wrap;
+    position: relative;
+    &__item {
+        margin-right: 12px;
+        margin-bottom: 2px;
+    }
+    &__btn {
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+        border: none;
+        background-color: transparent;
+        &--grey {
+            font-size: 9px;
+            color: $grey;
+        }
+        &--cabinet {
+            color: $white;
+        }
+    }
+    &::after {
+        position: absolute;
+        content: '|';
+        color: #414040;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+} 

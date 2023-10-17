@@ -1,0 +1,11 @@
+@import '../scss-setings/vars.scss';
+
+.catalog {
+  &__container {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background-color: $grey-dark;
+    display: flex;
+    justify-content: space-between;
+  }
+}

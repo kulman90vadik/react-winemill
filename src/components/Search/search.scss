@@ -1,0 +1,16 @@
+@import '../../scss-setings/vars.scss';
+
+.search {
+    display: flex;
+    align-items: center;
+    &__input {
+        height: 33.5px;
+        outline: transparent;
+        border: none;
+        padding: 5px;
+        font-size: 18px;
+        color: $black;
+        max-width: 520px;
+        width: 100%;
+    }
+}

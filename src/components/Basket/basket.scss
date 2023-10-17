@@ -1,0 +1,25 @@
+@import '../../scss-setings/vars.scss';
+
+.basket {
+  &__top,
+  &__bottom {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 9px;
+    color: $grey;
+    margin-right: 3px;
+  }
+  &__bottom {
+    & div:first-child {
+      margin-right: 3px;
+    }
+  }
+}
+
+
+
+
+       
