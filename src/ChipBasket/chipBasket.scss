@@ -1,0 +1,33 @@
+@import '../scss-setings/vars.scss';
+
+.chipBasket {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  background-color: rgba($black, 0.8);
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  visibility: hidden;
+  &__content {
+    width: 65%;
+    height: 100%;
+    background-color: $black;
+    position: relative;
+  }
+
+  &--active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+    visibility: visible;
+  }
+
+  &__close {
+    font-size: 45px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: red;
+  }
+}

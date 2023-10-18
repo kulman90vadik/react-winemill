@@ -1,10 +1,10 @@
 import './basket.scss';
 
-const Basket = () => {
+const Basket = ({onBasketHandler}) => {
   return (
     <div className="basket">
       <div className="basket__top">
-        <div className="basket__text">Корзина:</div>
+        <button className="btn-reset basket__text" onClick={onBasketHandler}>Корзина:</button>
         <div className="basket__number">0</div>
       </div>
       <div className="basket__bottom">

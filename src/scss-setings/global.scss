@@ -36,9 +36,17 @@ body {
 }
 
 [class*="__container"] {
-    max-width: 1105px;
+    max-width: 1290px;
     padding: 0 45px;
     margin: 0 auto;
+}
+
+.btn-reset {
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: transparent;
 }
 
 

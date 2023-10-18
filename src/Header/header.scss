@@ -1,6 +1,12 @@
 @import '../scss-setings/vars.scss';
 
 .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
     background-color: $codGray;
     padding: 15px 0;
     &__top {

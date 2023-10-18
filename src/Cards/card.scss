@@ -1,0 +1,53 @@
+@import '../scss-setings/vars.scss';
+
+.card {
+  border: 1px solid red;
+
+  &__photo {
+    background-color: $codGray;
+    position: relative;
+    min-height: 300px;
+
+  }
+
+  &__image {
+    width: 65%;
+    height: 95%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  }
+
+  &__linie {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 2px;
+  }
+
+  &__country {
+    display: flex;
+    align-items: center;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__banner {
+    width: 19px;
+    height: 10px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  &__add {
+    padding: 5px 9px;
+    background-color: $maroon;
+    color: $white;
+    font-size: 17px;
+  }
+}
