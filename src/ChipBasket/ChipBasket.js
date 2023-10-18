@@ -15,7 +15,7 @@ const ChipBasket = ({ openBasket, onBasketHandler, basketCollections}) => {
     <ul className="">
       {basketCollections.map(item => {
         return (
-          <li>
+          <li key={item.id}>
             {item.name}
           </li>
         )

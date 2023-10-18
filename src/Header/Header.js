@@ -8,7 +8,7 @@ import Basket from "../components/Basket/Basket";
 import ChipBasket from "../ChipBasket/ChipBasket";
 import { useState } from "react";
 
-const Header = ({ basketCollections }) => {
+const Header = ({ basketCollections, countBasket }) => {
   const [openBasket, setOpenBasket] = useState(false);
 
   const onBasketHandler = () => {
@@ -23,7 +23,7 @@ const Header = ({ basketCollections }) => {
           <Search />
           <Cabinet />
           <Location />
-          <Basket onBasketHandler={onBasketHandler} />
+          <Basket onBasketHandler={onBasketHandler} countBasket={countBasket}/>
           <ChipBasket
             openBasket={openBasket}
             onBasketHandler={onBasketHandler}

@@ -5,7 +5,7 @@ const Cards = ({ collections, onAddToBasket }) => {
   return (
     <div className="cards">
       <ul className="cards__list">
-        {collections.map((item) => {
+        {collections.map((item, index) => {
           return (
             <li className="cards__item" key={item.id}>
               <article className="card">

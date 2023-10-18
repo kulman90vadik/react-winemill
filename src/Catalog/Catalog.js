@@ -4,10 +4,9 @@ import Cards from '../Cards/Cards';
 import Filter from '../Filter/Filter';
 import './catalog.scss';
 
-const Catalog = ({onAddToBasket}) => {
+const Catalog = ({onAddToBasket, collections, setCollections}) => {
 
-  // arr data
-  const [collections, setCollections] = useState([]);
+
 
 
 
@@ -25,8 +24,6 @@ const Catalog = ({onAddToBasket}) => {
     }, []);
 
 
-   
-
 
   return (
     <section className="catalog">
@@ -38,4 +35,5 @@ const Catalog = ({onAddToBasket}) => {
   );
 }
  
+
 export default Catalog;
