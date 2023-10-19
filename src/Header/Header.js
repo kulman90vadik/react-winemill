@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Logo from "../components/Logo/Logo";
 import "./header.scss";
 
@@ -6,9 +8,8 @@ import Cabinet from "../components/Cabinet/Cabinet";
 import Location from "../components/Location/Location";
 import Basket from "../components/Basket/Basket";
 import ChipBasket from "../ChipBasket/ChipBasket";
-import { useState } from "react";
 
-const Header = ({ basketCollections, countBasket }) => {
+const Header = ({ basketCollections, countBasket, clickBtnSearch, searchCity}) => {
   const [openBasket, setOpenBasket] = useState(false);
 
   const onBasketHandler = () => {
@@ -20,7 +21,7 @@ const Header = ({ basketCollections, countBasket }) => {
       <div className="header__container">
         <div className="header__top">
           <Logo />
-          <Search />
+          <Search clickBtnSearch={clickBtnSearch} searchCity={searchCity}/>
           <Cabinet />
           <Location />
           <Basket onBasketHandler={onBasketHandler} countBasket={countBasket}/>

@@ -1,6 +1,13 @@
 import "./chipBasket.scss";
 
 const ChipBasket = ({ openBasket, onBasketHandler, basketCollections}) => {
+
+  const result = basketCollections.reduce((acc, item) => {
+    if (acc.includes(item)) return acc; 
+    return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+  }, []);
+
+
   return (
     <div className={`chipBasket ${openBasket ? "chipBasket--active" : ""} `}>
       <div className="chipBasket__content">
@@ -13,13 +20,18 @@ const ChipBasket = ({ openBasket, onBasketHandler, basketCollections}) => {
         </button>
 
     <ul className="">
-      {basketCollections.map(item => {
+      
+      {result.map(item => {
+
         return (
           <li key={item.id}>
             {item.name}
           </li>
         )
+
       })}
+
+
     </ul>
 
       </div>
