@@ -9,12 +9,17 @@ import Location from "../components/Location/Location";
 import Basket from "../components/Basket/Basket";
 import ChipBasket from "../ChipBasket/ChipBasket";
 
-const Header = ({ basketCollections, countBasket, clickBtnSearch, searchCity}) => {
+const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
   const [openBasket, setOpenBasket] = useState(false);
 
   const onBasketHandler = () => {
     setOpenBasket(!openBasket);
   };
+
+  const basketCollectionsFilter = basketCollections.reduce((acc, item) => {
+    if (acc.includes(item)) return acc; 
+    return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+  }, []);
 
   return (
     <div className="header">
@@ -24,11 +29,11 @@ const Header = ({ basketCollections, countBasket, clickBtnSearch, searchCity}) =
           <Search clickBtnSearch={clickBtnSearch} searchCity={searchCity}/>
           <Cabinet />
           <Location />
-          <Basket onBasketHandler={onBasketHandler} countBasket={countBasket}/>
+          <Basket onBasketHandler={onBasketHandler} basketCollectionsFilter={basketCollectionsFilter}/>
           <ChipBasket
             openBasket={openBasket}
             onBasketHandler={onBasketHandler}
-            basketCollections={basketCollections}
+            basketCollectionsFilter={basketCollectionsFilter}
           />
         </div>
         <div className="header__bottom"></div>

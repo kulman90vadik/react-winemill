@@ -4,6 +4,9 @@ import "./cards.scss";
 import Card from "./Card";
 
 const Cards = ({collections, onAddToBasket, isAdd, searchCity}) => {
+
+
+  
   return (
     <div className="cards">
       <ul className="cards__list">

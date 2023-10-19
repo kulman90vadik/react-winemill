@@ -1,6 +1,6 @@
 import "./card.scss";
 
-const Card = ({item, onAddToBasket, isAdd }) => {
+const Card = ({item, onAddToBasket, isAdd}) => {
   return (
     <li className="cards__item">
       <article className="card">
@@ -26,7 +26,7 @@ const Card = ({item, onAddToBasket, isAdd }) => {
             className="card__add btn-reset"
             onClick={() => onAddToBasket(item)}
             type="button"
-            style={{ backgroundColor: isAdd ? "green" : "red" }}
+            // style={{ backgroundColor: isAdd ? "green" : "red" }}
           >
             Add to Basket
           </button>

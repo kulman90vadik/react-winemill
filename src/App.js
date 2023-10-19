@@ -13,16 +13,17 @@ const App = () => {
   const [collections, setCollections] = useState([]);
   // arr basket
   const [basketCollections, setBasketCollections] = useState([]);
-  // count basket
-  const [countBasket, setCountBasket] = useState(0);
+
   const [isAdd, setIsAdd] = useState(false);
   // add to basket
   const onAddToBasket = (objBasket) => {
+    
+    setIsAdd(!isAdd);
+
     setBasketCollections((prev) => {
       return [...prev, objBasket];
     });
-    setCountBasket((prev) => prev + 1);
-    setIsAdd(!isAdd);
+
   };
 
   const clickBtnSearch = (e) => {
@@ -48,7 +49,6 @@ const App = () => {
     <>
       <Header
         basketCollections={basketCollections}
-        countBasket={countBasket}
         clickBtnSearch={clickBtnSearch}
         searchCity={searchCity}
       />
@@ -57,6 +57,7 @@ const App = () => {
         onAddToBasket={onAddToBasket}
         isAdd={isAdd}
         searchCity={searchCity}
+        
       />
     </>
   );

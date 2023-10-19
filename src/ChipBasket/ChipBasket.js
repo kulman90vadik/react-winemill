@@ -1,11 +1,8 @@
 import "./chipBasket.scss";
 
-const ChipBasket = ({ openBasket, onBasketHandler, basketCollections}) => {
+const ChipBasket = ({ openBasket, onBasketHandler, basketCollectionsFilter}) => {
 
-  const result = basketCollections.reduce((acc, item) => {
-    if (acc.includes(item)) return acc; 
-    return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
-  }, []);
+
 
 
   return (
@@ -21,7 +18,7 @@ const ChipBasket = ({ openBasket, onBasketHandler, basketCollections}) => {
 
     <ul className="">
       
-      {result.map(item => {
+      {basketCollectionsFilter.map(item => {
 
         return (
           <li key={item.id}>
