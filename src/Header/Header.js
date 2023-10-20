@@ -15,7 +15,7 @@ const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
   const onBasketHandler = () => {
     setOpenBasket(!openBasket);
   };
-
+// СОРТИРОВКА ЭЛЕМЕНТОВ В КОРЗИНЕ - ЗДЕСЬ ТАК КАК НУЖНО ПЕРЕДАТЬ В BASKET ДЛИНУ
   const basketCollectionsFilter = basketCollections.reduce((acc, item) => {
     if (acc.includes(item)) return acc; 
     return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор

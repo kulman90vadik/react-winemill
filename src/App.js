@@ -1,5 +1,7 @@
 
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import "./scss-setings/includes.scss";
 import Header from "./Header/Header";
 import Catalog from "./Catalog/Catalog.js";
@@ -17,6 +19,8 @@ const App = () => {
   const [isAdd, setIsAdd] = useState(false);
   // add to basket
   const onAddToBasket = (objBasket) => {
+
+    //  axios.post('https://652cdf7ad0d1df5273efc824.mockapi.io/cart', objBasket);
     
     setIsAdd(!isAdd);
 
@@ -43,6 +47,21 @@ const App = () => {
         console.warn(err);
       })
       // .finally(() => setIsLoading(false));
+
+// ЗАПРОС НА ПОЛУЧЕНИЕ ДАННЫХ ДЛЯ КАРТОЧЕК
+
+      // axios.get(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${count ? `category=${count}` : ''}`).then((res) => {
+      //   setCollections(res.data);
+      // });
+
+// ЗАПРОС НА ДОБАВЛЕНИЕ В МАССИВ В БЕКЕНД  
+
+      // axios.get('https://652cdf7ad0d1df5273efc824.mockapi.io/cart').then((res) => {
+      //   setBasketCollections(res.data);
+      // });
+
+// ПРИ УДАЛЕНИИ ИЗ КОРЗИНЫ ТАК ЖЕ ВЫЗЫВАЕМ МЕТОТ AXIOS DELETE ПЕРЕДАЁМ ССЫЛКУ С ID ЭЛЕМЕНТАМ КОТОРОГО ЪОТИМ УДАЛИТЬ
+
     }, [count]);
 
   return (
