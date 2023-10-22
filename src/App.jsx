@@ -1,10 +1,10 @@
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 import "./scss-setings/includes.scss";
 import Header from "./Header/Header";
-import Catalog from "./Catalog/Catalog.js";
+import Catalog from "./Catalog/Catalog.jsx";
 
 const App = () => {
   // sort mockApi

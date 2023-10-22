@@ -1,17 +1,10 @@
-import { useState } from "react";
+
 import "./chipBasket.scss";
+
+import Counter from "./Counter";
 
 const ChipBasket = ({ openBasket, onBasketHandler, basketCollectionsFilter }) => {
 
-  const[amount, setAmount] = useState(1);
-
-  // const pricePlus = () => {
-  //   setAmount(prev => prev + 1)
-  // }
-
-  // const priceMinus = () => {
-  //   setAmount(prev => prev - 1)
-  // }
 
   return (
     <div className={`chipBasket ${openBasket ? "chipBasket--active" : ""} `}>
@@ -63,21 +56,9 @@ const ChipBasket = ({ openBasket, onBasketHandler, basketCollectionsFilter }) =>
                   </div>
 
                   <div className="chipBasket__grid chipBasket__btns">
-                    <button
-                      className="chipBasket__btn btn-reset"
-                      type="button"
-                      onClick={() => setAmount(prev => prev + 1)}
-                    >
-                      -
-                    </button>
-              {amount}
-                    <button
-                      className="chipBasket__btn btn-reset"
-                      type="button"
-                      onClick={() => setAmount(prev => prev + 1)}
-                    >
-                      +
-                    </button>
+                  
+                  <Counter />
+                  
                   </div>
 
 
