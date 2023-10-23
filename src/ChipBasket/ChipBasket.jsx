@@ -1,10 +1,22 @@
 
+
+import { useState } from "react";
 import "./chipBasket.scss";
 
 import Counter from "./Counter";
 
 const ChipBasket = ({ openBasket, onBasketHandler, basketCollectionsFilter }) => {
 
+// const[a, setA] = useState(basketCollectionsFilter);
+
+// console.log(a);
+
+  const delCartBasket = (id) => {
+    // basketCollectionsFilter.filter(item => item.id !== id);
+
+    // console.log(basketCollectionsFilter);
+    // console.log(id);
+  }
 
   return (
     <div className={`chipBasket ${openBasket ? "chipBasket--active" : ""} `}>
@@ -28,9 +40,12 @@ const ChipBasket = ({ openBasket, onBasketHandler, basketCollectionsFilter }) =>
             {basketCollectionsFilter.map((item) => {
               return (
                 <li className="chipBasket__item" key={item.id}>
+                  
                   <div className="chipBasket__grid">
                     <div className="chipBasket__left">
                       <div className="chipBasket__photo">
+ {/*////////*/}
+                      <div className="chipBasket__closeBtn">&times;</div>
                         <img
                           className="chipBasket__image"
                           src={item.image}
@@ -55,14 +70,8 @@ const ChipBasket = ({ openBasket, onBasketHandler, basketCollectionsFilter }) =>
                     {item.price}
                   </div>
 
-                  <div className="chipBasket__grid chipBasket__btns">
-                  
-                  <Counter />
-                  
-                  </div>
-
-
-                  <div className="chipBasket__grid">{item.price}</div>
+                  <Counter price={item.price} delCartBasket={delCartBasket} id={item.id}/>
+                
                 </li>
               );
             })}

@@ -11,7 +11,8 @@ import ChipBasket from "../ChipBasket/ChipBasket";
 
 const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
   const [openBasket, setOpenBasket] = useState(false);
-
+  
+  
   const onBasketHandler = () => {
     setOpenBasket(!openBasket);
   };
@@ -20,6 +21,8 @@ const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
     if (acc.includes(item)) return acc; 
     return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
   }, []);
+
+
 
   return (
     <div className="header">

@@ -3,7 +3,7 @@ import "./cards.scss";
 
 import Card from "./Card";
 
-const Cards = ({collections, onAddToBasket, isAdd, searchCity}) => {
+const Cards = ({collections, onAddToBasket, searchCity}) => {
 
 
   
@@ -19,7 +19,6 @@ const Cards = ({collections, onAddToBasket, isAdd, searchCity}) => {
             key={item.id}
             item={item}
             onAddToBasket={onAddToBasket}
-            isAdd={isAdd}
           />
         ))}
       </ul>

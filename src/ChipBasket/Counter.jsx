@@ -2,38 +2,51 @@ import {useState} from "react";
 
 import "./chipBasket.scss";
 
-const Counter = () => {
+const Counter = ({price, delCartBasket, id}) => {
+
+    let startPrice = Number(price);
+
+    const[statePrice, setStatePrice] = useState(Number(price));
     const[amount, setAmount] = useState(1);
-    const min = 0;
+    const min = 1;
     const increment = () => {
-        setAmount(amount + 1)
+        setAmount(amount + 1);
+        setStatePrice(prev => prev + startPrice);
     }
 
     const decrement = () => {
         if(amount > min) {
-            setAmount(amount - 1)
-
+            setAmount(amount - 1);
+            setStatePrice(prev => prev - startPrice);
+        }
+        else {
+            delCartBasket(id);
+            // console.log(id);
         }
     }
     return (
         <>
-        <button
-            className="chipBasket__btn btn-reset"
-            type="button"
-            onClick={decrement}
-        >
-            -
-        </button>
-        {amount}
-        <button
-            className="chipBasket__btn btn-reset"
-            type="button"
-            onClick={increment}
-        >
-            +
-        </button>
+         <div className="chipBasket__grid chipBasket__btns">
+            <button
+                className="chipBasket__btn btn-reset"
+                type="button"
+                onClick={decrement}
+            >
+                -
+            </button>
+            {amount}
+            <button
+                className="chipBasket__btn btn-reset"
+                type="button"
+                onClick={increment}
+            >
+                +
+            </button>
+        </div>
+        <div className="chipBasket__grid">{statePrice}</div>
         </>
     )
 }
 
 export default Counter;
+

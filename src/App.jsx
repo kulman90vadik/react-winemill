@@ -16,18 +16,21 @@ const App = () => {
   // arr basket
   const [basketCollections, setBasketCollections] = useState([]);
 
-  const [isAdd, setIsAdd] = useState(false);
   // add to basket
-  const onAddToBasket = (objBasket) => {
+  const onAddToBasket = (objBasket, setIsAdd, isAdd) => {
 
     //  axios.post('https://652cdf7ad0d1df5273efc824.mockapi.io/cart', objBasket);
+
+    // if(isAdd) {
+      setBasketCollections((prev) => {
+        // console.log(prev);
+        return [...prev, objBasket];
+      });
+    // }
+    
     
     setIsAdd(!isAdd);
-
-    setBasketCollections((prev) => {
-      return [...prev, objBasket];
-    });
-
+    // если там есть такой элемент с ид то не забрасываем.
   };
 
   const clickBtnSearch = (e) => {
@@ -74,7 +77,6 @@ const App = () => {
       <Catalog
         collections={collections}
         onAddToBasket={onAddToBasket}
-        isAdd={isAdd}
         searchCity={searchCity}
         
       />

@@ -55,6 +55,15 @@
     margin-bottom: 25px;
   }
 
+
+  &__closeBtn {
+     position: absolute;
+     font-size: 23px;
+     line-height: 1;
+     left: -20px; top: -6px;
+     color: red;
+  }
+
   &--active {
     opacity: 1;
     transition: opacity 0.3s ease-in;

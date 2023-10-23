@@ -1,6 +1,11 @@
+import { useState } from "react";
 import "./card.scss";
 
-const Card = ({item, onAddToBasket, isAdd}) => {
+const Card = ({item, onAddToBasket}) => {
+
+  const [isAdd, setIsAdd] = useState(true);
+
+
   return (
     <li className="cards__item">
       <article className="card">
@@ -24,9 +29,9 @@ const Card = ({item, onAddToBasket, isAdd}) => {
           </div>
           <button
             className="card__add btn-reset"
-            onClick={() => onAddToBasket(item)}
+            onClick={() => onAddToBasket(item, setIsAdd, isAdd)}
             type="button"
-            // style={{ backgroundColor: isAdd ? "green" : "red" }}
+            style={{ backgroundColor: isAdd ? "red" : "green" }}
           >
             Add to Basket
           </button>
