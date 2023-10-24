@@ -3,7 +3,7 @@ import "./card.scss";
 
 const Card = ({item, onAddToBasket}) => {
 
-  const [isAdd, setIsAdd] = useState(true);
+  const [isAdd, setIsAdd] = useState(false);
 
 
   return (
@@ -28,10 +28,10 @@ const Card = ({item, onAddToBasket}) => {
             <div className="card__price">{item.price} $ </div>
           </div>
           <button
-            className="card__add btn-reset"
-            onClick={() => onAddToBasket(item, setIsAdd, isAdd)}
+            className={`card__add btn-reset ${isAdd ? 'card__add--desabled' : ''}`}
+            onClick={() => onAddToBasket(item, setIsAdd)}
             type="button"
-            style={{ backgroundColor: isAdd ? "red" : "green" }}
+            disabled={isAdd}
           >
             Add to Basket
           </button>

@@ -9,7 +9,7 @@ import Location from "../components/Location/Location";
 import Basket from "../components/Basket/Basket";
 import ChipBasket from "../ChipBasket/ChipBasket";
 
-const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
+const Header = ({ basketCollections, clickBtnSearch, searchCity, setBasketCollections}) => {
   const [openBasket, setOpenBasket] = useState(false);
   
   
@@ -17,12 +17,10 @@ const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
     setOpenBasket(!openBasket);
   };
 // СОРТИРОВКА ЭЛЕМЕНТОВ В КОРЗИНЕ - ЗДЕСЬ ТАК КАК НУЖНО ПЕРЕДАТЬ В BASKET ДЛИНУ
-  const basketCollectionsFilter = basketCollections.reduce((acc, item) => {
-    if (acc.includes(item)) return acc; 
-    return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
-  }, []);
-
-
+  // const basketCollectionsFilter = basketCollections.reduce((acc, item) => {
+  //   if (acc.includes(item)) return acc; 
+  //   return [...acc, item]; // добавляем к аккумулятору и возвращаем новый аккумулятор
+  // }, []);
 
   return (
     <div className="header">
@@ -32,11 +30,12 @@ const Header = ({ basketCollections, clickBtnSearch, searchCity}) => {
           <Search clickBtnSearch={clickBtnSearch} searchCity={searchCity}/>
           <Cabinet />
           <Location />
-          <Basket onBasketHandler={onBasketHandler} basketCollectionsFilter={basketCollectionsFilter}/>
+          <Basket onBasketHandler={onBasketHandler} basketCollections={basketCollections}/>
           <ChipBasket
             openBasket={openBasket}
             onBasketHandler={onBasketHandler}
-            basketCollectionsFilter={basketCollectionsFilter}
+            basketCollections={basketCollections}
+            setBasketCollections={setBasketCollections}
           />
         </div>
         <div className="header__bottom"></div>

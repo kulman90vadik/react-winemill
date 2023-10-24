@@ -8,9 +8,10 @@
   }
 
   &__text {
-    font-size: 9px;
+    font-size: 10px;
     color: $grey;
     margin-right: 3px;
+    cursor: pointer;
   }
   &__bottom {
     & div:first-child {

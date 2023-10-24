@@ -16,6 +16,11 @@
     background-color: $grey-dark;
     position: relative;
     padding: 45px;
+    &--empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__inner {
@@ -56,12 +61,13 @@
   }
 
 
-  &__closeBtn {
+  &__close-btn {
      position: absolute;
      font-size: 23px;
      line-height: 1;
      left: -20px; top: -6px;
      color: red;
+     cursor: pointer;
   }
 
   &--active {
@@ -155,5 +161,9 @@
     margin: 0 5px;
   }
 
+  &__image-empty {
+    width: 60%;
+    height: 60%;
+  }
 
 }

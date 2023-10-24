@@ -49,6 +49,10 @@
     background-color: $maroon;
     color: $white;
     font-size: 17px;
-    
+  }
+  &__add--desabled {
+    background-color: green;
+    opacity: 0.5;
+    cursor: auto;
   }
 }

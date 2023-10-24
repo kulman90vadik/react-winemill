@@ -16,27 +16,25 @@ const App = () => {
   // arr basket
   const [basketCollections, setBasketCollections] = useState([]);
 
-  // add to basket
-  const onAddToBasket = (objBasket, setIsAdd, isAdd) => {
+// add to basket
+  const onAddToBasket = (objBasket, setIsAdd) => {
 
-    //  axios.post('https://652cdf7ad0d1df5273efc824.mockapi.io/cart', objBasket);
-
-    // if(isAdd) {
+//  axios.post('https://652cdf7ad0d1df5273efc824.mockapi.io/cart', objBasket);
+      setIsAdd(true);
       setBasketCollections((prev) => {
-        // console.log(prev);
         return [...prev, objBasket];
       });
-    // }
-    
-    
-    setIsAdd(!isAdd);
-    // если там есть такой элемент с ид то не забрасываем.
+
+      console.log(basketCollections);
   };
 
   const clickBtnSearch = (e) => {
     setSerchCity(e.target.value);
   }
 
+  // const test = () => {
+
+  // }
 
 
   useEffect(() => {
@@ -71,8 +69,10 @@ const App = () => {
     <>
       <Header
         basketCollections={basketCollections}
+        setBasketCollections={setBasketCollections}
         clickBtnSearch={clickBtnSearch}
         searchCity={searchCity}
+        // test={test}
       />
       <Catalog
         collections={collections}
