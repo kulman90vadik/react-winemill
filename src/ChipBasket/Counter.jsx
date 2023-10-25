@@ -21,7 +21,6 @@ const Counter = ({price, delCartBasket, id}) => {
         }
         else {
             delCartBasket(id);
-            
         }
     }
     return (

@@ -13,6 +13,16 @@
     margin-right: 3px;
     cursor: pointer;
   }
+
+  &__top {
+    padding-right: 9px;
+    position: relative;
+  }
+  &__number {
+    top: -1px;
+    position: absolute;
+    right: 0;
+  }
   &__bottom {
     & div:first-child {
       margin-right: 3px;

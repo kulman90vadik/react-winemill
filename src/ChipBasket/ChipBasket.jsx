@@ -3,22 +3,14 @@ import "./chipBasket.scss";
 
 import Counter from "./Counter";
 
-const ChipBasket = ({
-  openBasket,
-  onBasketHandler,
-  basketCollections,
-  setBasketCollections,
-
-}) => {
+const ChipBasket = ({openBasket, onBasketHandler, basketCollections, setBasketCollections}) => {
   const delCartBasket = (id) => {
     console.log(id);
-    setBasketCollections(
-      basketCollections.filter((el) => {
-        return el.id !== id;
-      })
-    );
-    // setIsAdd(true)
-  };
+    setBasketCollections(basketCollections.filter(el => el.id !== id)
+    // setIsAdd(true);
+
+  );
+};
 
   return (
     <div className={`chipBasket ${openBasket ? "chipBasket--active" : ""}`}>

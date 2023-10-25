@@ -1,16 +1,21 @@
 import "./cards.scss";
 
-
+import Loader from "./Loader";
 import Card from "./Card";
 
-const Cards = ({collections, onAddToBasket, searchCity}) => {
+const Cards = ({collections, onAddToBasket, searchCity, loading}) => {
 
 
   
   return (
     <div className="cards">
       <ul className="cards__list">
-        {collections
+      {loading 
+      ? 
+        [...Array(10)].map(item => <Loader />)
+      : 
+        
+        collections
         .filter((obj) => {
           return obj.country.toLowerCase().includes(searchCity.toLowerCase());
         })
@@ -20,7 +25,9 @@ const Cards = ({collections, onAddToBasket, searchCity}) => {
             item={item}
             onAddToBasket={onAddToBasket}
           />
-        ))}
+        ))
+
+      }
       </ul>
     </div>
   );
