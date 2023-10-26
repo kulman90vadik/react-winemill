@@ -1,15 +1,19 @@
 
 import "./search.scss";
-// import { Icon } from '../Icon';
+import { useContext } from "react";
+import AppContext from "../../context";
 
-const Search = ({clickBtnSearch, searchCity}) => {
+const Search = () => {
+
+  const {searchCity} = useContext(AppContext);
+  const {clickBtnSearch} = useContext(AppContext);
 
   return (
     <div className="search">
       <input
         className="search__input"
         type="text"
-        value={searchCity}
+        defaultValue={searchCity}
         onChange={clickBtnSearch}
         placeholder="Search by country"
       />

@@ -30,17 +30,13 @@ const Counter = ({price, delCartBasket, id}) => {
                 className="chipBasket__btn btn-reset"
                 type="button"
                 onClick={decrement}
-            >
-                -
-            </button>
+            > - </button>
             {amount}
             <button
                 className="chipBasket__btn btn-reset"
                 type="button"
                 onClick={increment}
-            >
-                +
-            </button>
+            > + </button>
         </div>
         <div className="chipBasket__grid">{statePrice}</div>
         </>

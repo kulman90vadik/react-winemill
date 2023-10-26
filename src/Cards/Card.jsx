@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./card.scss";
 
-const Card = ({ item, onAddToBasket }) => {
+import AppContext from "../context";
+
+const Card = ({item}) => {
   const [isAdd, setIsAdd] = useState(false);
+  const {setBasketCollections} = useContext(AppContext);
+  const {basketCollections} = useContext(AppContext);
+
+  const {setSumm} = useContext(AppContext);
+
+  const onAddToBasket = (objBasket) => {
+    setIsAdd(!isAdd);
+    if(basketCollections.find((item) => Number(item.id) === Number(objBasket.id))) {
+      setBasketCollections((prev) => prev.filter((elem) => Number(elem.id !== Number(objBasket.id))));
+      // повтор
+    } else {
+      setBasketCollections((prev) => [...prev, objBasket])
+
+      setSumm(prev => prev + Number(objBasket.price));
+    }
+};
+
 
   return (
     <li className="cards__item">
-    
         <article className="card">
           <div className="card__photo">
             <div
@@ -27,17 +45,14 @@ const Card = ({ item, onAddToBasket }) => {
               <div className="card__price">{item.price} $ </div>
             </div>
             <button
-              // className={`card__add btn-reset ${isAdd ? 'card__add--desabled' : ''}`}
               className={`card__add btn-reset ${isAdd ? "green" : "red"}`}
-              onClick={() => onAddToBasket(item, setIsAdd, isAdd)}
+              onClick={() => onAddToBasket(item)}
               type="button"
-              // disabled={isAdd}
             >
               Add to Basket
             </button>
           </div>
         </article>
-      
     </li>
   );
 };

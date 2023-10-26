@@ -1,16 +1,21 @@
+import {useContext} from "react"
 import emptyCart from '../images/empty-cart.svg'
 import "./chipBasket.scss";
-
 import Counter from "./Counter";
 
-const ChipBasket = ({openBasket, onBasketHandler, basketCollections, setBasketCollections}) => {
+import AppContext from "../context";
+
+const ChipBasket = () => {
+
+  const {basketCollections} = useContext(AppContext);
+  const {setBasketCollections} = useContext(AppContext);
+  const {onBasketHandler} = useContext(AppContext);
+  const {openBasket} = useContext(AppContext);
+
   const delCartBasket = (id) => {
     console.log(id);
-    setBasketCollections(basketCollections.filter(el => el.id !== id)
-    // setIsAdd(true);
-
-  );
-};
+    setBasketCollections(basketCollections.filter(el => el.id !== id));
+  };
 
   return (
     <div className={`chipBasket ${openBasket ? "chipBasket--active" : ""}`}>

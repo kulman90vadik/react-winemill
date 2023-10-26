@@ -10,6 +10,7 @@
   opacity: 0;
   transition: opacity 0.3s ease-in;
   visibility: hidden;
+  z-index: 200;
   &__content {
     width: 65%;
     height: 100%;
