@@ -10,7 +10,7 @@ const Cards = () => {
   const {collections} = useContext(AppContext);
   const {loading} = useContext(AppContext);
   const {searchCity} = useContext(AppContext);
-  
+  // console.log(collections)
   return (
     <div className="cards">
       <ul className="cards__list">
@@ -23,6 +23,7 @@ const Cards = () => {
           return obj.country.toLowerCase().includes(searchCity.toLowerCase());
         })
         .map((item) => (
+          
           <Card
             key={item.id}
             item={item}

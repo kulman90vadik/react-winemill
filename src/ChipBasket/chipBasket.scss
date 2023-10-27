@@ -1,7 +1,7 @@
 @import '../scss-setings/vars.scss';
 
 .chipBasket {
-  position: absolute;
+  position: fixed;
   inset: 0;
   height: 100vh;
   background-color: rgba($black, 0.8);
@@ -41,7 +41,6 @@
   }
 
   &__grid {
-    // border: 1px solid red;
     &:nth-child(1) {
       grid-column: 1/6;
     }

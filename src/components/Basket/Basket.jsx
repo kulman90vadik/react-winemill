@@ -6,7 +6,6 @@ import { useContext } from "react";
 
 const Basket = () => {
 
-
   const {basketCollections} = useContext(AppContext);
   const {onBasketHandler} = useContext(AppContext);
   const {summ} = useContext(AppContext);

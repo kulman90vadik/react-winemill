@@ -1,28 +1,44 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 
 import "./chipBasket.scss";
+import AppContext from "../context";
 
-const Counter = ({price, delCartBasket, id}) => {
+const Counter = ({price, delMinusCartBasket, id}) => {
+    const {setSumm} = useContext(AppContext);
 
     let startPrice = Number(price);
 
     const[statePrice, setStatePrice] = useState(Number(price));
     const[amount, setAmount] = useState(1);
     const min = 1;
+
     const increment = () => {
         setAmount(amount + 1);
         setStatePrice(prev => prev + startPrice);
+        setSumm(prev => prev + startPrice);
     }
 
     const decrement = () => {
         if(amount > min) {
             setAmount(amount - 1);
             setStatePrice(prev => prev - startPrice);
+            setSumm(prev => prev - startPrice);
         }
         else {
-            delCartBasket(id);
+            setSumm(prev => prev - startPrice);
+            delMinusCartBasket(id, statePrice, price);
         }
     }
+
+
+    // if(Number(statePrice) > Number(price)) {
+    //     console.log(statePrice);
+    //     console.log(price);
+    //     setSumm(prev => prev - statePrice);
+    //   } else {
+    //     console.log('no');
+    //   }
+
     return (
         <>
          <div className="chipBasket__grid chipBasket__btns">

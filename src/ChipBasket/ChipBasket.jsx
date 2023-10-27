@@ -11,10 +11,20 @@ const ChipBasket = () => {
   const {setBasketCollections} = useContext(AppContext);
   const {onBasketHandler} = useContext(AppContext);
   const {openBasket} = useContext(AppContext);
+  const {setCollections} = useContext(AppContext);
+  const {collections} = useContext(AppContext);
 
-  const delCartBasket = (id) => {
-    console.log(id);
+  const {setSumm} = useContext(AppContext);
+
+  const delMinusCartBasket = (id) => {
+    // console.log(statePrice);
+    // console.log(price);
     setBasketCollections(basketCollections.filter(el => el.id !== id));
+    setCollections(collections.map(el => (el.id !== id) ? el : {...el, isAdd: !el.isAdd}))
+  };
+  const rr = (id) => {
+    setBasketCollections(basketCollections.filter(el => el.id !== id));
+    setCollections(collections.map(el => (el.id !== id) ? el : {...el, isAdd: !el.isAdd}))
   };
 
   return (
@@ -43,10 +53,9 @@ const ChipBasket = () => {
                     <div className="chipBasket__grid">
                       <div className="chipBasket__left">
                         <div className="chipBasket__photo">
-                          {/*////////*/}
                           <div
                             className="chipBasket__close-btn"
-                            onClick={() => delCartBasket(item.id)}
+                            onClick={() => rr(item.id, item.price)}
                           >
                             &times;
                           </div>
@@ -76,7 +85,7 @@ const ChipBasket = () => {
 
                     <Counter
                       price={item.price}
-                      delCartBasket={delCartBasket}
+                      delMinusCartBasket={delMinusCartBasket}
                       id={item.id}
                     />
                   </li>

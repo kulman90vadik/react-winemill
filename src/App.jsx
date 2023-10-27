@@ -57,9 +57,26 @@ const App = () => {
   const onBasketHandler = () => {
     setOpenBasket(!openBasket);
   };
-  
 
-  
+  const onAddToBasket = (objBasket) => {
+    collections.map(elem => {
+      if(Number(elem.id) === Number(objBasket.id)) return elem.isAdd = !objBasket.isAdd;
+    })
+
+    // console.log(objBasket);
+
+    if(basketCollections.find((item) => Number(item.id) === Number(objBasket.id))) {
+      setBasketCollections((prev) => prev.filter((elem) => Number(elem.id) !== Number(objBasket.id)));
+      console.log('yes');
+      setSumm(prev => prev - Number(objBasket.price));
+    } else {
+      setBasketCollections((prev) => [...prev, objBasket]);
+
+      setSumm(prev => prev + Number(objBasket.price));
+    }
+    
+};
+
 
   return (
     <AppContext.Provider
@@ -69,7 +86,7 @@ const App = () => {
         setCollections, setBasketCollections,
         loading, searchCity, clickBtnSearch,
         onBasketHandler, openBasket,
-        summ, setSumm
+        summ, onAddToBasket, setSumm
       }}
     >
         <Header />
