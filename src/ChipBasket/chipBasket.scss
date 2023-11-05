@@ -1,30 +1,28 @@
-@import '../scss-setings/vars.scss';
+@import "../scss-setings/vars.scss";
 
 .chipBasket {
-  position: fixed;
-  inset: 0;
-  height: 100vh;
-  background-color: rgba($black, 0.8);
-  display: flex;
-  justify-content: flex-end;
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
-  visibility: hidden;
-  z-index: 200;
-  &__content {
-    width: 65%;
-    height: 100%;
+  &__container {
     background-color: $grey-dark;
-    position: relative;
-    padding: 45px;
+  }
+  &__content {
+    padding: 120px 45px 45px;
+    // position: relative;
+    display: flex;
     &--empty {
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 100vh;
     }
   }
 
+  &__right {
+    width: 28%;
+  }
+
   &__inner {
+    width: 68%;
+    margin-right: 2%;
     border: 1px solid $codGray;
   }
 
@@ -60,21 +58,21 @@
     margin-bottom: 25px;
   }
 
-
   &__close-btn {
-     position: absolute;
-     font-size: 23px;
-     line-height: 1;
-     left: -20px; top: -6px;
-     color: red;
-     cursor: pointer;
+    position: absolute;
+    font-size: 23px;
+    line-height: 1;
+    left: -20px;
+    top: -6px;
+    color: red;
+    cursor: pointer;
   }
 
-  &--active {
-    opacity: 1;
-    transition: opacity 0.3s ease-in;
-    visibility: visible;
-  }
+  // &--active {
+  //   opacity: 1;
+  //   transition: opacity 0.3s ease-in;
+  //   visibility: visible;
+  // }
 
   &__close {
     font-size: 45px;
@@ -114,9 +112,9 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 72%;
+    width: 34%;
     height: 100%;
-    top: -10%;
+    top: 2%;
   }
 
   &__title {
@@ -154,6 +152,12 @@
     align-self: start;
   }
 
+  &__total {
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
   &__btn {
     color: $white;
     font-size: 19px;
@@ -162,8 +166,43 @@
   }
 
   &__image-empty {
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
   }
 
+  .chipBasket-summa {
+    background-color: $codGray;
+    padding: 25px 45px;
+
+    &__item {
+      display: flex;
+      font-weight: 700;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__text {
+      text-transform: uppercase;
+    }
+
+    &__dots {
+      flex-grow: 1;
+      margin: 0 5px 5px;
+      border-bottom: 1px dotted $white;
+    }
+
+    &__btn {
+      background-color: $maroon;
+      color: $white;
+      font-weight: 700;
+      padding: 15px;
+      font-size: 17px;
+      font-family: $Roboto;
+      width: 100%;
+      letter-spacing: 2px;
+    }
+  }
 }
+
+// &times; X

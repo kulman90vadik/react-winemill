@@ -4,10 +4,13 @@
   width: 75%;
   // background-color: #fff;
   min-height: 100vh;
+  padding-top: 100px;
   &__list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 90px 85px;
-    padding-top: 100px;
+    padding-top: 90px;    
   }
+
+
 }

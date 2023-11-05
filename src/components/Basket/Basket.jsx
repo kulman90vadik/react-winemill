@@ -1,4 +1,5 @@
 import './basket.scss';
+import { Link } from "react-router-dom";
 import React from 'react';
 import AppContext from "../../context";
 
@@ -7,13 +8,16 @@ import { useContext } from "react";
 const Basket = () => {
 
   const {basketCollections} = useContext(AppContext);
-  const {onBasketHandler} = useContext(AppContext);
   const {summ} = useContext(AppContext);
 
   return (
     <div className="basket">
       <div className="basket__top">
-        <button className="btn-reset basket__text" onClick={onBasketHandler}>Корзина:</button>
+
+      <Link to="/basket">
+          <button className="btn-reset basket__text" >Корзина:</button>
+      </Link>
+
         <div className="basket__number">{basketCollections.length}</div>
       </div>
       <div className="basket__bottom">
@@ -23,5 +27,6 @@ const Basket = () => {
     </div>
   );
 }
- 
+
+
 export default Basket;

@@ -18,8 +18,7 @@ const Header = () => {
           <Cabinet />
           <Location />
           <Basket />
-          {/* <ChipBasket openBasket={openBasket} onBasketHandler={onBasketHandler} */}
-          {/* /> */}
+        
         </div>
         <div className="header__bottom"></div>
       </div>

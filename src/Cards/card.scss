@@ -7,12 +7,12 @@
     background-color: $codGray;
     position: relative;
     min-height: 300px;
-
+    margin-bottom: 10px;
   }
 
   &__image {
-    width: 65%;
-    height: 95%;
+    width: 35%;
+    height: 100%;
     position: absolute;
     top: 35%;
     left: 50%;
@@ -57,9 +57,30 @@
   }
 
   .green {
-background-color: green;
+    background-color: green;
+    transition: background-color 0.3s ease-in;
+    &:hover {
+      background-color: rgba(green, 0.5);
+    }
   }
   .red {
-    background-color: red;
+    background-color: $maroon;
+    transition: background-color 0.3s ease-in;
+    &:hover {
+      background-color: rgba($maroon, 0.5);
+    }
+  }
+
+  &__sweetness {
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: 5px;
+    text-transform: capitalize;
+  }
+
+  &__year {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 3px;
   }
 }

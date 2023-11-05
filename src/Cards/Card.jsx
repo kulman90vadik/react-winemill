@@ -22,6 +22,7 @@ const Card = ({item}) => {
           </div>
           <h3 className="card__title">{item.name}</h3>
           <span className="card__year">{item.year}</span>
+          <span className="card__sweetness">{item.sweetness}</span>
           <div className="card__country">
             <img className="card__banner" src={item.banner} alt="flag" />
             {item.country}

@@ -1,0 +1,141 @@
+@import "../../scss-setings/vars";
+
+.filter-items {
+    margin-bottom: 50px;
+    color: $white;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba($white, 0.5);
+        margin-bottom: 18px;
+    }
+
+    &__btn {
+        width: 27px;
+        height: 27px;
+        background-color: $maroon;
+        color: inherit;
+        font-size: 18px;
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "-";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &--plus {
+            &::after {
+                content: "+";
+            }
+        }
+    }
+
+    &__title {
+        font-family: $Roboto;
+        font-size: 17px;
+        line-height: 1;
+        letter-spacing: 2px;
+    }
+
+    &__label {
+        cursor: pointer;
+    }
+
+    &__list {
+        transition: 0.5s ease;
+        overflow: hidden;
+    }
+
+    &__item {
+        position: relative;
+        padding-left: 36px;
+        &:not(:last-child) {
+            margin-bottom: 11px;
+        }
+        span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            left: 0;
+            border: 1px solid rgba($white, 0.5);
+            transition: border-color 0.3s ease-in;
+            &::after {
+                position: absolute;
+                content: "";
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background-color: $maroon;
+                width: 10px;
+                height: 10px;
+                opacity: 0;
+                transition: opacity 0.3s ease-in;
+            }
+        }
+    }
+
+    &__input {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+        &:checked {
+            + span {
+                border-color: $maroon;
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .filter-price {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__btn {
+            width: 33.33%;
+        }
+
+        &__box {
+            width: 66.66%;
+            height: 33.5px;
+            display: flex;
+            border: 1px solid rgba($white, 0.5);
+        }
+
+        &__input {
+            height: 100%;
+            color: $white;
+            width: 50%;
+            padding: 3px 5px 3px 15px;
+            background-color: transparent;
+            outline: transparent;
+            border: none;
+            &:focus {
+                border-color: $maroon;
+            }
+            
+            &::placeholder {
+                text-transform: uppercase;
+                // font-weight: 600;
+            }
+
+        }
+
+        &__btn {
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 8px 25px;
+            background-color: $maroon;
+            color: $white;
+        }
+    }
+}

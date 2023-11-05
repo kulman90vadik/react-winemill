@@ -30,18 +30,9 @@ const Counter = ({price, delMinusCartBasket, id}) => {
         }
     }
 
-
-    // if(Number(statePrice) > Number(price)) {
-    //     console.log(statePrice);
-    //     console.log(price);
-    //     setSumm(prev => prev - statePrice);
-    //   } else {
-    //     console.log('no');
-    //   }
-
     return (
         <>
-         <div className="chipBasket__grid chipBasket__btns">
+        <div className="chipBasket__grid chipBasket__btns">
             <button
                 className="chipBasket__btn btn-reset"
                 type="button"
@@ -54,7 +45,7 @@ const Counter = ({price, delMinusCartBasket, id}) => {
                 onClick={increment}
             > + </button>
         </div>
-        <div className="chipBasket__grid">{statePrice}</div>
+        <div className="chipBasket__grid chipBasket__total">{statePrice}</div>
         </>
     )
 }
