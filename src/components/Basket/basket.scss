@@ -19,9 +19,17 @@
     position: relative;
   }
   &__number {
-    top: -1px;
+    top: 1px;
     position: absolute;
-    right: 0;
+    width: 16px;
+    height: 16px;
+    background: green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -11px;
+    line-height: 1;
   }
   &__bottom {
     & div:first-child {

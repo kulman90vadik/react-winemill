@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import emptyCart from '../images/empty-cart.svg'
+import emptyCart from '../../images/empty-cart.svg'
 import "./chipBasket.scss";
 import Counter from "./Counter";
 
-import AppContext from "../context";
+import AppContext from "../../context";
 
 const ChipBasket = () => {
 
@@ -21,6 +21,8 @@ const ChipBasket = () => {
     setBasketCollections(basketCollections.filter(el => el.id !== id));
     setCollections(collections.map(el => (el.id !== id) ? el : { ...el, isAdd: !el.isAdd }))
   };
+
+
   const rr = (id, price) => {
     setBasketCollections(basketCollections.filter(el => el.id !== id));
     setCollections(collections.map(el => (el.id !== id) ? el : { ...el, isAdd: !el.isAdd }))

@@ -1,0 +1,92 @@
+@import "../scss-setings/vars.scss";
+
+
+.mySwiper {
+  margin-top: 70px;
+  background-color: $black;
+  &__container {
+    max-width: 1380px;
+  }
+  .swiper {
+    height: 300px;
+    position: relative;
+  }
+  
+  .swiper-slide {
+    display: flex; 
+    height: 100%;
+  }
+
+  &__right {
+    width: 60%;
+  }
+
+  &__left {
+    width: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(126, 10, 45, 1),
+    rgba(57, 2, 19, 1));
+    clip-path: polygon(20% 1%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  &__heading {
+    font-family: $AlexBrush;
+    display: block;
+    font-size: 48px;
+    line-height: 60px;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+
+  &__title {
+    font-size: 38px;
+    letter-spacing: 4%;
+    text-transform: uppercase;
+    line-height: 46px;
+    display: block;
+    margin-bottom: 30px;
+    max-width: 480px;
+    text-align: center;
+  }
+
+  &__link {
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 9px;
+    line-height: 13px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 34px;
+    height: 34px;
+    background-color: rgba($white, 0.35);
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in;
+    &::after {
+      content: '\2192';
+      font-size: 22px;
+      color: $black;
+    }
+    &:hover {
+      background-color: rgba($white, 0.65);
+      transition: background-color 0.3s ease-in;
+    }
+  }
+  .swiper-button-prev {
+    &::after {
+      content: '\2192';
+      transform: rotate(180deg);
+    }
+  }
+}
+
+

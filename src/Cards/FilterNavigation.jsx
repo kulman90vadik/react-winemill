@@ -4,10 +4,15 @@ import AppContext from "../context";
 import "./filter-nav.scss";
 
 let names = ["Names of wine brands", "Familie Torres", "Domaine de la Romaneé-Conti", "Château Margaux", "Penfolds", "La Rioja Alta"];
-
+let priceTo = [
+    {'title': 'Price', 'id': ''},
+    {'title': 'Ascending', 'id': 'asc'},
+    {'title': 'Descending', 'id': 'desc'},
+];
 const FilterNavigation = () => {
 
     const { onAddFilter, onOpen, blockHidden, count } = useContext(AppContext);
+    const { onAddFilterPrice, onOpenPrice, blockHiddenPrice, countPrice } = useContext(AppContext);
 
     return (
         <div className="filter-nav">
@@ -29,6 +34,23 @@ const FilterNavigation = () => {
                     </div>
 
                 </li>
+
+                <li className="filter-nav__item">
+                    <button type="button" className="filter-nav__name btn-reset" onClick={() => onOpenPrice
+                        (blockHiddenPrice)}>
+                        <span className="filter-nav__name-price">{priceTo[countPrice].title}</span>
+                        <span>&#8645;</span>
+                        <svg className={`filter-nav__svg ${blockHiddenPrice ? 'filter-nav__svg--active' : ''}`} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" />
+                        </svg>
+                    </button>    
+                    <div className="filter-nav__info" style={{ maxHeight: blockHiddenPrice ? '500px' : '0px' }}>
+                        {
+                            priceTo.map((el, index) => <button className="filter-nav__btn btn-reset" key={el.title} onClick={() => onAddFilterPrice(index, el.id)}>{el.title}</button>)
+                        }
+                    </div>
+                </li>
+
 
             </ul>
         </div>

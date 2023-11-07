@@ -15,7 +15,7 @@ const FilterItems = ({ filterArr, title }) => {
     const [listHeight, setListHeight] = useState(true);
 
     // const filterColor = (item, title) => {
-        // console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${item.toLowerCase() ? `${title.toLowerCase()}=${item.toLowerCase()}` : ''}`);
+    //     console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${item.toLowerCase() ? `${title.toLowerCase()}=${item.toLowerCase()}` : ''}`);
 
     //     fetch(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${item.toLowerCase() ? `${title.toLowerCase()}=${item.toLowerCase()}` : ''}`)
     //         .then((res) => res.json())

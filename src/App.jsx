@@ -5,14 +5,18 @@ import { Route, Routes } from "react-router-dom";
 import "./scss-setings/includes.scss";
 import Header from "./Header/Header";
 import Home from "./pages/Home";
-import ChipBasket from "./ChipBasket/ChipBasket";
+import ChipBasket from "./pages/ChipBasket/ChipBasket";
+import NotFound from "./pages/NotFound/NotFound";
 
 import AppContext from "./context";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const [blockHidden, setBlockHidden] = useState(false);
 
+  const [count, setCount] = useState(0);
+  const [countPrice, setCountPrice] = useState(0);
+  const [blockHidden, setBlockHidden] = useState(false); 
+  const [blockHiddenPrice, setBlockHiddenPrice] = useState(false); 
+  const [order, setOrder] = useState(0); 
 
   // search
   const [searchCity, setSerchCity] = useState("");
@@ -37,7 +41,17 @@ const App = () => {
   const onOpen = (blockHidden) => {
     setBlockHidden(!blockHidden);
   }
-
+  // 
+  const onAddFilterPrice = (index, id) => {
+    setCountPrice(index);
+    setOrder(id);
+    console.log(id);
+    setBlockHiddenPrice(!blockHiddenPrice);
+  };
+  const onOpenPrice = (blockHiddenPrice) => {
+    setBlockHiddenPrice(!blockHiddenPrice);
+  }
+// 
   
   const [colorr, setColorr] = useState('');
   const [titlee, setTitlee] = useState('');
@@ -46,20 +60,25 @@ const App = () => {
     setTitlee(title);
   }
 
+  const[pageIndex, setPageIndex] = useState(1);
+  const handlePageClick = (page) => {
+    setPageIndex(page);
+    console.log(page);
+  };
+
+
 
   useEffect(() => {
-
-
     setLoading(true);
+    let category = count ? `&category=${count}` : '';
+    let orderId = order ? `&sortBy=price&order=${order}` : '';
+    let color = colorr.toLowerCase() ? `&${titlee.toLowerCase()}=${colorr.toLowerCase()}` : '';
+    let page = `page=${pageIndex}&limit=5`
 
-    let category = count ? `category=${count}` : '';
-    let color = colorr.toLowerCase() ? `${titlee.toLowerCase()}=${colorr.toLowerCase()}` : '';
-
-console.log(color);
-console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${category}&${color}`);
+    console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${page}${category}${orderId}${color}`);
 
 
-    fetch(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${category}&${color}`)
+    fetch(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${page}${category}${orderId}${color}`)
       .then((res) => res.json())
       .then((json) => {
         setCollections(json);
@@ -77,7 +96,7 @@ console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${category}&${colo
     //   setBasketCollections(res.data);
     // });
     // ПРИ УДАЛЕНИИ ИЗ КОРЗИНЫ ТАК ЖЕ ВЫЗЫВАЕМ МЕТОТ AXIOS DELETE ПЕРЕДАЁМ ССЫЛКУ С ID ЭЛЕМЕНТАМ КОТОРОГО ЪОТИМ УДАЛИТЬ
-  }, [count, titlee, colorr]);
+  }, [count, titlee, colorr, order, pageIndex]);
 
   const onAddToBasket = (objBasket) => {
     collections.map(elem => {
@@ -103,7 +122,10 @@ console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${category}&${colo
         collections, basketCollections,
         setCollections, setBasketCollections,
         loading, searchCity, clickBtnSearch,
-        summ, onAddToBasket, setSumm, onAddFilter, onOpen, blockHidden, filterColor, count
+        summ, onAddToBasket, setSumm, onAddFilter, onOpen, blockHidden, filterColor, count,
+        setSerchCity,
+        onAddFilterPrice, onOpenPrice, blockHiddenPrice, countPrice,
+        handlePageClick, pageIndex
       }}
     >
       <Header />
@@ -111,6 +133,7 @@ console.log(`https://652cdf7ad0d1df5273efc824.mockapi.io/wine?${category}&${colo
 
         <Route path="/" exact element={<Home />} />
         <Route path="basket" exact element={<ChipBasket />} />
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
     </AppContext.Provider>

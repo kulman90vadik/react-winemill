@@ -3,14 +3,31 @@
 .search {
     display: flex;
     align-items: center;
+    position: relative;
     &__input {
         height: 33.5px;
         outline: transparent;
         border: none;
         padding: 5px;
+        padding-right: 30px;
         font-size: 18px;
         color: $black;
         max-width: 540px;
         width: 100%;
+    }
+    &__icon {
+        position: absolute;
+        right: 3px;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.7;
+        transition: opacity 0.3s ease-in;
+        &:hover {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
+        }
     }
 }

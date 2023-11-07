@@ -1,7 +1,7 @@
 import {useState, useContext} from "react";
 
 import "./chipBasket.scss";
-import AppContext from "../context";
+import AppContext from "../../context";
 
 const Counter = ({price, delMinusCartBasket, id}) => {
     const {setSumm} = useContext(AppContext);

@@ -1,0 +1,57 @@
+@import '../../scss-setings/vars.scss';
+
+
+.NotFound {
+  &__container {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    &::after {
+      position: absolute;
+      background-image: linear-gradient(rgba(0, 0, 0, 1),rgba(0, 0, 0, 0));
+      content: '';
+      inset: 0;
+      transform: rotate(180deg);
+      z-index: 5;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__haeding {
+    font-family: $AlexBrush;
+    font-size: 82px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  &__number {
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 7px;
+    font-size: 18px;
+  }
+
+  &__title {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 28px;
+    line-height: 45px;
+    letter-spacing: 5px;
+    max-width: 500px;
+    width: 100%;
+  }
+}

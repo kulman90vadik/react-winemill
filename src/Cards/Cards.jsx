@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import Card from "./Card";
 import AppContext from "../context";
 import FilterNavigation from "./FilterNavigation";
+import Paginate from "../components/Paginate/Paginate";
 
 const Cards = () => {
 
@@ -35,6 +36,9 @@ const Cards = () => {
 
         }
       </ul>
+
+        <Paginate />
+
     </div>
   );
 };
